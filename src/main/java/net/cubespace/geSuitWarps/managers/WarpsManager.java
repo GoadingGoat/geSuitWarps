@@ -2,7 +2,6 @@ package net.cubespace.geSuitWarps.managers;
 
 import net.cubespace.geSuitWarps.geSuitWarps;
 import net.cubespace.geSuitWarps.tasks.PluginMessageTask;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -15,7 +14,6 @@ import java.io.IOException;
 public class WarpsManager {
 
     public static void warpPlayer( final CommandSender sender, final String senderName, final String warp ) {
-    	Player p = Bukkit.getPlayer(sender.getName());
         ByteArrayOutputStream b = new ByteArrayOutputStream();
         DataOutputStream out = new DataOutputStream(b);
         try {
@@ -56,7 +54,6 @@ public class WarpsManager {
     public static void setWarpDesc( CommandSender sender, String warpName, String description ) {
         ByteArrayOutputStream b = new ByteArrayOutputStream();
         DataOutputStream out = new DataOutputStream( b );
-        Location l = ( ( Player ) sender ).getLocation();
         try {
             out.writeUTF( "SetWarpDesc" );
             out.writeUTF( sender.getName() );
@@ -69,7 +66,6 @@ public class WarpsManager {
     }
 
     public static void silentWarpPlayer( final CommandSender sender, final String senderName, final String warp ) {
-        Player p = Bukkit.getPlayer(sender.getName());
         ByteArrayOutputStream b = new ByteArrayOutputStream();
         DataOutputStream out = new DataOutputStream(b);
         try {
